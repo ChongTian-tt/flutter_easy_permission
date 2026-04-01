@@ -55,4 +55,31 @@ enum PermissionGroup {
   Bluetooth
 }
 
+// *****************************************************************************
+// ************************************ ohos ************************************
+// *****************************************************************************
+// 注意：系统授权(system_grant)权限安装时自动授予，无需运行时请求，不在此枚举中
+// 索引顺序必须与 ohos 侧 PermissionOhosList 一一对应
+enum PermissionsOhos {
+  // 用户授权权限（user_grant）19个
+  ACCESS_BLUETOOTH, // 访问蓝牙
+  MEDIA_LOCATION, // 媒体位置信息
+  APP_TRACKING_CONSENT, // 应用追踪
+  ACTIVITY_MOTION, // 运动状态
+  CAMERA, // 相机
+  DISTRIBUTED_DATASYNC, // 分布式数据同步
+  LOCATION_IN_BACKGROUND, // 后台定位
+  LOCATION, // 定位
+  APPROXIMATELY_LOCATION, // 模糊定位
+  MICROPHONE, // 麦克风
+  READ_CALENDAR, // 读取日历
+  WRITE_CALENDAR, // 写入日历
+  READ_HEALTH_DATA, // 健康数据
+  ACCESS_NEARLINK, // 星闪
+  READ_WRITE_DOWNLOAD_DIRECTORY, // 访问Download目录
+  READ_WRITE_DOCUMENTS_DIRECTORY, // 访问Documents目录
+  CUSTOM_SCREEN_CAPTURE, // 屏幕截图 api 14开始支持
+  READ_MEDIA, // 读取媒体文件 api 22 已废弃
+  WRITE_MEDIA, // 写入媒体文件 api 22 已废弃
+}
 

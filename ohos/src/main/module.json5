@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "flutter_easy_permission",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

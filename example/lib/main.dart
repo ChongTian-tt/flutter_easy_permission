@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_easy_permission/easy_permissions.dart';
@@ -19,6 +21,9 @@ class _MyAppState extends State<MyApp> {
   static const permissionGroup = [
     PermissionGroup.Camera];
 
+  static const permissionsOhos = [
+    PermissionsOhos.CAMERA];
+
   late FlutterEasyPermission _easyPermission;
 
   @override
@@ -27,21 +32,23 @@ class _MyAppState extends State<MyApp> {
 
     _easyPermission = FlutterEasyPermission()
       ..addPermissionCallback(
-        onGranted: (requestCode,perms,perm){
+        onGranted: (requestCode,perms,perm,permsOhos){
           debugPrint("android获得授权:$perms");
           debugPrint("iOS获得授权:$perm");
+          debugPrint("FlutterEasyPermissionPlugin ohos获得授权:$permsOhos");
         },
-        onDenied: (requestCode,perms,perm,isPermanent){
+        onDenied: (requestCode,perms,perm, permsOhos,isPermanent){
           if(isPermanent){
             FlutterEasyPermission.showAppSettingsDialog(title: "Camera");
           }else{
             debugPrint("android授权失败:$perms");
             debugPrint("iOS授权失败:$perm");
+            debugPrint("FlutterEasyPermissionPlugin ohos授权失败:$permsOhos");
           }
         },
 
         onSettingsReturned: (){
-          FlutterEasyPermission.has(perms: permissions,permsGroup: []).then(
+          FlutterEasyPermission.has(perms: permissions,permsGroup: [],permsOhos: permissionsOhos).then(
                   (value) => value
                   ?debugPrint("已获得授权:$permissions")
                   :debugPrint("未获得授权:$permissions")
@@ -69,7 +76,7 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                   child: Text("检查权限"),
                   onPressed: (){
-                    FlutterEasyPermission.has(perms: permissions,permsGroup: permissionGroup).then(
+                    FlutterEasyPermission.has(perms: permissions,permsGroup: permissionGroup,permsOhos: permissionsOhos).then(
                             (value) => value
                                 ?debugPrint("已获得授权")
                                 :debugPrint("未获得授权")
@@ -79,7 +86,7 @@ class _MyAppState extends State<MyApp> {
                 child: Text("请求权限"),
                   onPressed: (){
                 FlutterEasyPermission.request(
-                    perms: permissions,permsGroup: permissionGroup,rationale:"测试需要这些权限");
+                    perms: permissions,permsGroup: permissionGroup,permsOhos: permissionsOhos,rationale:"测试需要这些权限");
               })
             ],
           )

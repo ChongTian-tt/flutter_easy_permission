@@ -1,0 +1,45 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\hoperun\\.ohos\\config\\default_ohos_p187LgZ_vf6zI8-BLNsTfv0MEZX2cYLj_1motON1kyQ=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001AF90C38CDC7464F172C4D1C5B411570BCA235ED7D8E2231F423A0232A9A3BBBFCFE14CD431E9F",
+          "profile": "C:\\Users\\hoperun\\.ohos\\config\\default_ohos_p187LgZ_vf6zI8-BLNsTfv0MEZX2cYLj_1motON1kyQ=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\hoperun\\.ohos\\config\\default_ohos_p187LgZ_vf6zI8-BLNsTfv0MEZX2cYLj_1motON1kyQ=.p12",
+          "storePassword": "0000001A77F47B07EDFC62899FE87503280152E6558FB501C20315796697ABBC1B3F998164B2B7C1C690"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flutter_easy_permission",
+      "srcPath": "../../ohos"
+    }
+  ]
+}
